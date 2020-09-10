@@ -1,0 +1,47 @@
+service: cobra-api
+
+frameworkVersion: "1"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-west-2
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource: "*"
+
+functions:
+  getUserThemes:
+    handler: getUserThemes.handler
+    events:
+      - http:
+          path: user/{userId}
+          method: get
+          cors: true
+
+  postUserTheme:
+    handler: postUserTheme.handler
+    events:
+      - http:
+          path: new
+          method: post
+          cors: true
+
+  updateUserTheme:
+    handler: updateUserTheme.handler
+    events:
+      - http:
+          path: update/{userId}/{themeId}
+          method: put
+          cors: true
+
+  deleteUserTheme:
+    handler: deleteUserTheme.handler
+    events:
+      - http:
+          path: delete/{userId}/{themeId}
+          method: delete
+          cors: true

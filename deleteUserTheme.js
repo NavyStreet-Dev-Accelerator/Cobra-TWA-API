@@ -16,10 +16,9 @@ exports.handler = async (event, context) => {
 
   const params = {
     TableName: "Themes",
-    KeyConditionExpression: "userId = :userId, themeId = :themeId",
-    ExpressionAttributeValues: {
-      ":userId": userId,
-      ":themeId": themeId,
+    Key: {
+      userId,
+      themeId,
     },
   };
 
