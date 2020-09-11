@@ -15,7 +15,7 @@ provider:
 
 functions:
   getUserThemes:
-    handler: getUserThemes.handler
+    handler: src/handlers/getUserThemes.handler
     events:
       - http:
           path: user/{userId}
@@ -23,7 +23,7 @@ functions:
           cors: true
 
   postUserTheme:
-    handler: postUserTheme.handler
+    handler: src/handlers/postUserTheme.handler
     events:
       - http:
           path: new
@@ -31,7 +31,7 @@ functions:
           cors: true
 
   updateUserTheme:
-    handler: updateUserTheme.handler
+    handler: src/handlers/updateUserTheme.handler
     events:
       - http:
           path: update/{userId}/{themeId}
@@ -39,7 +39,7 @@ functions:
           cors: true
 
   deleteUserTheme:
-    handler: deleteUserTheme.handler
+    handler: src/handlers/deleteUserTheme.handler
     events:
       - http:
           path: delete/{userId}/{themeId}
