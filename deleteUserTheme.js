@@ -16,10 +16,10 @@ exports.handler = async (event, context) => {
 
   const params = {
     TableName: "Themes",
-    Key:{
-      userId, 
-      themeId
-    }
+    Key: {
+      userId,
+      themeId,
+    },
   };
 
   try {
